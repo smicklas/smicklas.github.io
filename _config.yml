@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: "/Type-on-Strap"
+baseurl: ""
 url: "https://smicklas.github.io"
 title: Sydney Micklas # site's title
 description: "Personal resume site for Sydney Micklas" # used by search engines
