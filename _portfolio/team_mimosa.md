@@ -5,7 +5,7 @@ img: "assets/img/portfolio/pupalert.png"
 ---
 
 In 2017, I worked with two other student on an android app, called ["Pup Alert"](https://github.com/TeamMimosa/PupAlert-android), over the course of a semester. 
-This was my first experience with Android add development. 
+This was my first experience with Android app development. (Note that the below images are screenshots and not just design boards)
 
 PupAlert was created as an app to view & share dogs in the area. First view is a map view, that displays your location on Google maps. Posts to PupAlert are displayed as red markers. 
 
