@@ -17,7 +17,7 @@ Check out the "Portfolio" page for more information on my various endeavors.
 
 Interested in more information or want to get in contact? Send me an email from the icon below.
 
-Resume available for download HERE.
+Resume available for download <a href="assets/Micklas_Resume.pdf">HERE</a>.
 
 Theme modified from <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>. 
  
