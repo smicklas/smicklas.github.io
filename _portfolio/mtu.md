@@ -37,7 +37,19 @@ A majority of my programming experiences comes from various classes I've taken o
   
 ### Android Development 
   * CS3141: Team Software Project
+  
+## Agile Development
+  * CS3141: Team Software Project
+    * SCRUM
+  * HGD: Husky Game Development Enterprise 
 
 ### Management & Business
   * MGT3800: Entrepreneurship
+  * MIS2000: IS/IT Management
+
+### Prospective classes & experience:
+  * CS4711: Software Processes and Management
+    * Continuous Integration
+    * Gradle/Ant automated build
+    * JavaScript
 
