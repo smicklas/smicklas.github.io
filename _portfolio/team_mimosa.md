@@ -17,9 +17,13 @@ Users sign in through Google. View will then show Google details.
 
 Users can post picture, or upload from gallery. General location is displayed at the time of post creation.
 
-![pupalert_3]({{ site.baseurl }}/assets/img/pexels/pupalert_3.jpg)
-![pupalert_4]({{ site.baseurl }}/assets/img/pexels/pupalert_4.jpg)
-![pupalert_5]({{ site.baseurl }}/assets/img/pexels/pupalert_5.jpg)
+<div id='masonry' class="grid">
+<div class="grid-sizer"></div>
+<div class="gutter-sizer"></div>
+  <img src="assets/img/pexels/pupalert_3.jpg" alt="" class="grid-item" style="padding: 0;">
+  <img src="assets/img/pexels/pupalert_4.jpg" alt="" class="grid-item" style="padding: 0;">
+  <img src="assets/img/pexels/pupalert_5.jpg" alt="" class="grid-item" style="padding: 0;">
+</div> 
 
 Users can view post feed, which displays other users' posts and relative time posted. 
 
