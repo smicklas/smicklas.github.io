@@ -20,9 +20,9 @@ Users can post picture, or upload from gallery. General location is displayed at
 <div id='masonry' class="grid">
 <div class="grid-sizer"></div>
 <div class="gutter-sizer"></div>
-  <img src="assets/img/pexels/pupalert_3.jpg" alt="" class="grid-item" style="padding: 0;">
-  <img src="assets/img/pexels/pupalert_4.jpg" alt="" class="grid-item" style="padding: 0;">
-  <img src="assets/img/pexels/pupalert_5.jpg" alt="" class="grid-item" style="padding: 0;">
+  <img src="/assets/img/pexels/pupalert_3.jpg" alt="" class="grid-item" style="padding: 1px;">
+  <img src="/assets/img/pexels/pupalert_4.jpg" alt="" class="grid-item" style="padding: 1px;">
+  <img src="/assets/img/pexels/pupalert_5.jpg" alt="" class="grid-item" style="padding: 1px;">
 </div> 
 
 Users can view post feed, which displays other users' posts and relative time posted. 
