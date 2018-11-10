@@ -14,20 +14,20 @@ During Fall 2018-Spring 2019, joined the Enterprise Management team as the Vice 
 
 During my time with HGD, I worked on a number of small games, each for a semester. 
 
+Each of the games are developed in Unity using C#. 
+
 ### Fall 2017
 [Egyptian-themed platformer](https://github.com/HuskyGameDev/2017-team5)
-* Developed in Unity 
-* C#
-* Animation, player controls, and level design 
+Aspects worked on:
+  * Animation, player controls, and level design 
 
 ### Spring 2017 
 [Turn-based combat game](https://github.com/HuskyGameDev/2017-team11)
-* Developed in Unity 
-* C#
-* Animation, UI, concept art 
+Aspects worked on: 
+  * Animation, UI, concept art 
 
-### Fall 2018
-To be decided!
-
- 
+### Fall 2018 (In progress)
+[2D Space PVP Fighter](https://github.com/HuskyGameDev/2018-team2)
+  * Textures, sprites, planet objects
+  * Playable demo at [here](https://huskygamedev.github.io/2018-team2/) (WebGL build updated approximately weekly)
 
