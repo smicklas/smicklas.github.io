@@ -15,11 +15,11 @@ nav-menu: true
 		</header>
 
 <!-- Content -->
-<h3>As you may have already seen, my name is Sydney Micklas.</h3>
+<h3>I'm Sydney Micklas!</h3>
 I'm a software developer from Michigan. 
 <br> 
 <br>
-I graduated from Michigan Technological University in 2019 with a Bachelor's Degree in Software Engineering.   
+As a lover of the winter, I attended Michigan Technological University in 2019 and graduated with a Bachelor's Degree in Software Engineering.   
 <br>
 <br>
 I'm oriented towards full-stack development, and I'll never say no to an opportunity to grow through new technologies. 
