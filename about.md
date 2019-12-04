@@ -43,7 +43,7 @@ My spare time is comprised of:
 Feel free download my resume. 
 <br>
 <br>
-<a href="#" class="button icon fa-download"></a> 
+<a href="assets\additional_files\Micklas_resume.pdf" class="button icon fa-download"></a> 
 <br>
 <br>
 I am best contacted through email, micklas.sydney@gmail.com.
