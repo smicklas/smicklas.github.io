@@ -21,7 +21,7 @@ The cloud animation grows in opacity with real location cloud coverage. The glow
 It is built with HTML, CSS, and Javascript.  
 <br>
 
-A current side project is re-factoring it into React. Below is a mockup built with Adobe Xd. The repository for this is available <a href ="https://github.com/smicklas/AuroraReact"> here. </a>
+A current side project is re-factoring it into React. Below are screenshots of the work in progress. The repository for this is available <a href ="https://github.com/smicklas/AuroraReact"> here. </a>
 
 <div style="text-align: center; border-top:none;">
     <img src="assets\images\aurorareact_1.png" alt="" width="50%" height="50%"/>
