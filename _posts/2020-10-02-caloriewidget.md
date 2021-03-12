@@ -66,3 +66,5 @@ However, services don't have access to the Sensor APIs needed to listen to the h
 It was disappointing to have to call it quits on the project for now, but maybe in the future this will be added to Tizen. I guess I had to learn the hard way why there aren't any calorie trackers! 
 
 If you'd like to see the code, <a href="https://github.com/smicklas/CalorieWidget">the repository is available here. </a>
+
+(In the end, I returned that watch and got a Charge 4.)
