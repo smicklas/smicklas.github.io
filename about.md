@@ -1,54 +1,24 @@
 ---
 layout: page
-title: About me 
-nav-menu: true
+title: About
 ---
 
-<!-- Main -->
-<div id="main" class="alt">
+<img class="pink-shadow center" src="../assets/images/sydney-micklas.jpeg" alt="Sydney Micklas"/>
 
-<!-- Title -->
-<section id="one">
-	<div class="inner">
-		<header class="major">
-			<h1>About me</h1>
-		</header>
+My name is Sydney Micklas! 
 
-<!-- Content -->
-<h3>I'm Sydney Micklas!</h3>
-I'm a software developer from Michigan. 
-<br> 
-<br>
-As a lover of the winter, I attended Michigan Technological University in 2019 and graduated with a Bachelor's Degree in Software Engineering.   
-<br>
-<br>
-I'm oriented towards full-stack development, and I'll never say no to an opportunity to grow through new technologies. 
-<br>
-<br>
-In the past I've had the pleasure of working with many teams for projects such as game development, Android apps, Node APIs, Ruby on Rails sites, and Sharepoint management. For more information, head on over to my portfolio.   
-<br>
-<br>
-My current endeavors involve Android development, React, and Arduino programming.  
-<br>
-<br>
-My spare time is comprised of:
-<br>
-	<ul>
-		<li>Weightlifting </li>
-		<li>Walking</li>
-		<li>Tinkering</li>
-		<li>Home DIY projects </li>
-	</ul>
- 
-Feel free download my resume. 
-<br>
-<br>
-<a href="assets\additional_files\Micklas_resume.pdf" class="button icon fa-download"></a> 
-<br>
-<br>
-I am best contacted through email, micklas.sydney@gmail.com.
-<br>
-<br>
-Thanks for stopping by!
+I'm a software developer originally from Michigan, currently living in Indiana.
 
-</div>
+I attended Michigan Technological University in 2019 and graduated with a Bachelor's Degree in Software Engineering.
+
+I'm oriented towards front-end development for web and mobile, but I'll never say no to an opportunity to grow through new technologies.
+
+I strive to create web applications that are as beautiful in their code as they are in design. 
+
+Some of my more recent projects include React web apps, wearables, and mobile-based experiences. 
+
+In my current job, I work extensively with React, JQuery, Coldfusion, and Unity.
+
+In my off time I enjoy video games, weight lifting, cross stitching, and doodling.
+
+<a href="../assets/SydneyMicklasResume.pdf" target="_blank"> Feel free to look at my resume for more details on my projects and work experience. Click here!</a>

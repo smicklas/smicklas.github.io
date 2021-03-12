@@ -1,0 +1,9 @@
+- title: Email
+  url: mailto://micklas.sydney@gmail.com
+  icon: fas fa-envelope
+- title: LinkedIn
+  url: https://www.linkedin.com/in/sydneymicklas/
+  icon: fab fa-linkedin
+- title: GitHub
+  url: https://github.com/smicklas
+  icon: fab fa-github

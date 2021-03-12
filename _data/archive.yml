@@ -1,0 +1,7 @@
+
+- type: categories
+  title: Categories
+  url: /categories/
+- type: tags
+  title: Tags
+  url: /tags/
