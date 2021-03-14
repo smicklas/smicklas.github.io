@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ride Sharing application mockup
+title: Ride Sharing application
 date: 2019-12-3 23:18 +0800
 tags: [design, projects]
 toc:  true

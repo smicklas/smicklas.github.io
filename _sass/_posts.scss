@@ -4,8 +4,9 @@
 // page is wrapped in `.page` and is only used on the page layout.
 
 .post-entry {
+  display: flex;
   border-bottom: 1px solid var(--border-color);
-  margin-bottom: var(--spacer-3);
+  margin-bottom: var(--spacer);
 }
 
 .page{
@@ -14,7 +15,7 @@
 .page,
 .post {
   font-family: var(--text-font);
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 
   h1, h2, h3, h4, h5, h6, .post-meta {
     font-family: var(--body-font);
@@ -203,7 +204,7 @@ img.feed-img{
   bottom: 9px;
   left: 0;
   right: 0;
-  background: rgba(223, 131, 151, 0.651);
+  background: rgba(223, 131, 151, 0.8);
   transition: background .3s linear;
 }
 
@@ -218,4 +219,29 @@ img.feed-img{
 .bold-pink{
   font-weight: bold;
   color: var(--main-color);
+}
+
+.post-title{
+  position: absolute;
+  margin: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+
+.post-description{
+  font-size: 1.4rem;
+  position: absolute;
+  margin: 60px 20px 20px 20px;
+  width: 40%;
+  color: white;
+
+  @media (max-width: $sm-width) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: $md-width) {
+    font-size: 1.2rem;
+    width: 87%;
+  }
 }
