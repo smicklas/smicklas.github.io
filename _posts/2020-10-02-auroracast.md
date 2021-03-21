@@ -4,7 +4,7 @@ title: Auroracast
 date: 2019-11-8 23:18 +0800
 tags: [design, development, projects]
 feed-img: ../assets/images/aurora_cover.png
-descripton: Simple web page for predicting Northern Lights visiblity
+description: Simple web page for predicting Northern Lights visiblity
 ---
 
 <img class="pink-shadow center" src="../../../../assets/images/auroracast.png"/>
