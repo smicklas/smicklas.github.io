@@ -19,8 +19,6 @@ Some of my more recent projects include React web apps, wearables, and mobile-ba
 
 In my previous role I worked extensively with React, JQuery, Coldfusion, and Unity.
 
-In my current role I develop Android applications in Kotlin. My current project utilizes Redux.
+In my current role I develop Android applications in Kotlin.
 
-In my off time I enjoy video games, weight lifting, cross stitching, creating cosplays, and doodling.
-
-<a href="../assets/SydneyMicklasResume.pdf" target="_blank"> Feel free to look at my resume for more details on my projects and work experience. Click here!</a>
+In my off time I enjoy video games, weight lifting, cross stitching, creating cosplays, roller skating, and doodling.S
