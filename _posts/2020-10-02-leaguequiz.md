@@ -22,4 +22,4 @@ The plan is to then implement it into a randomly sorted quiz where users will gu
     <button class="next center gallery-button"><i class="fas fa-forward" aria-hidden="true"></i></button>
 </div>
 
-My goal was to cloosely mimic the style of the style used in the <a href="https://www.chiboost.net/upload/2019/03/IMAGE-FOR-LOL-CLIENT-SPEC-MODE-1024x576.jpg">League of Legends launcher</a>, <a href="https://images2.minutemediacdn.com/image/upload/c_fill,w_912,h_516,f_auto,q_auto,g_auto/shape/cover/sport/5afde7387134f68573000003.png">champ select</a>, and <a href="https://na.leagueoflegends.com/en-us/">website</a>. 
+My goal was to closely mimic the style of the style used in the <a href="https://www.chiboost.net/upload/2019/03/IMAGE-FOR-LOL-CLIENT-SPEC-MODE-1024x576.jpg">League of Legends launcher</a>, <a href="https://images2.minutemediacdn.com/image/upload/c_fill,w_912,h_516,f_auto,q_auto,g_auto/shape/cover/sport/5afde7387134f68573000003.png">champ select</a>, and <a href="https://na.leagueoflegends.com/en-us/">website</a>. 

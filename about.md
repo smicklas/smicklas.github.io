@@ -21,4 +21,4 @@ In my previous role I worked extensively with React, JQuery, Coldfusion, and Uni
 
 In my current role I develop Android applications in Kotlin.
 
-In my off time I enjoy video games, weight lifting, cross stitching, creating cosplays, roller skating, and doodling.S
+In my off time I enjoy video games, weight lifting, cross stitching, creating cosplays, roller skating, and doodling.
