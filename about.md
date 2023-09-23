@@ -7,18 +7,16 @@ title: About
 
 My name is Sydney Micklas! 
 
-I'm a software developer originally from Michigan, currently living in Indiana.
+I'm a software engineer in Indiana. I'm a Midwest enthusiast who was born and raised in the mitten of Michigan.
 
-I graduated Michigan Technological University in 2019 and graduated with a Bachelor's Degree in Software Engineering.
-
-I'm oriented towards front-end development for web and mobile.
-
-I strive to create web applications that are as beautiful in their code as they are in design. 
-
-Some of my more recent projects include React web apps, wearables, and mobile-based experiences. 
+I currently make cool Android applications. Frontend development and web design have a soft spot in my heart. 
 
 In my previous role I worked extensively with React, JQuery, Coldfusion, and Unity.
 
-In my current role I develop Android applications in Kotlin.
+I strive to create applications that are as beautiful in their code as they are in design. 
 
-In my off time I enjoy video games, weight lifting, cross stitching, creating cosplays, roller skating, and doodling.
+I graduated Michigan Technological University in 2019 and graduated with a Bachelor's Degree in Software Engineering.
+
+Some of my projects include a Compose app, React experiments, wearables, and other mobile-based experiences. 
+
+In my off time I enjoy video games, weight lifting, roller skating, cross stitching, creating cosplays, and doodling.

@@ -2,7 +2,7 @@
 layout: post
 title: Ride Sharing application
 date: 2019-12-3 23:18 +0800
-tags: [design, projects]
+tags: [projects]
 toc:  true
 feed-img: ../assets/images/rideshare_cover.png
 description: Mockups for mobile hitch-hiking/ridesharing application

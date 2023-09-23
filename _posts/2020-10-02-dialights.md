@@ -2,7 +2,7 @@
 layout: post
 title: DiaLights
 date: 2020-01-20 23:18 +0800
-tags: [design, development, projects]
+tags: [projects]
 toc:  true
 feed-img: ../assets/images/dialights_cover.png
 description: RBG lights controlled by Arduino, bluetooth, and Android application
@@ -22,7 +22,7 @@ The app was developed using the Android SDK in Java. The Arduino code is written
     <button class="next center gallery-button"><i class="fas fa-forward" aria-hidden="true"></i></button>
 </div>
 
-
+/
 The individual panel colors can be controlled individually, synced to one color, turned on and off, or set to slowly pulse through a range of colors.
 
 Additional information and code can be found on the <a href="https://github.com/smicklas/DiaLights">Github repository</a>.

@@ -2,7 +2,7 @@
 layout: post
 title: League of Legends Ability Quiz
 date: 2021-04-05 23:18 +0800
-tags: [design, projects]
+tags: [projects]
 toc:  true
 feed-img: ../assets/images/abilityquiz_cover.png
 description: Quiz to test League of Legends champion abilities 

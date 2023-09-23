@@ -2,7 +2,7 @@
 layout: post
 title: Calorie Tracker
 date: 2021-02-27 23:18 +0800
-tags: [design, development, projects]
+tags: [projects]
 toc:  true
 feed-img: ../assets/images/calorie_cover.png
 description: Hydrid Tizen application for tracking and calculating calories

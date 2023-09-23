@@ -2,7 +2,7 @@
 layout: post
 title: Auroracast
 date: 2019-11-8 23:18 +0800
-tags: [design, development, projects]
+tags: [projects]
 feed-img: ../assets/images/aurora_cover.png
 description: Simple web page for predicting Northern Lights visiblity
 ---
