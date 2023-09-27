@@ -2,7 +2,6 @@
 //
 // Each post is wrapped in `.post` and is used on default and post layouts. Each
 // page is wrapped in `.page` and is only used on the page layout.
-
 .post-entry {
   display: flex;
   border-bottom: 1px solid var(--border-color);
@@ -196,7 +195,7 @@ img.feed-img{
   cursor: pointer;
 }
 
-.tint:before {
+.tint::before {
   content: "";
   display: block;
   position: absolute;
@@ -205,15 +204,35 @@ img.feed-img{
   left: 0;
   right: 0;
   background: rgba(223, 131, 151, 0.8);
-  transition: background .3s linear;
+  transition: background 0.3s linear;
 }
 
-.tint:hover:before {
+.tint:hover { 
   background: none;
+  transition: background 0.3s linear;
+	-moz-transition: background 0.3s linear;
+	-webkit-transition: background 0.3s linear;
 }
 
-.small{
-  
+.fade-out:hover .tint::before{
+  background: none;
+  transition: background 0.3s linear;
+	-moz-transition: background 0.3s linear;
+	-webkit-transition: background 0.3s linear;
+}
+
+.fade-out:hover > .card-title {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-webkit-transition: opacity 0.3s linear;
+}
+
+.fade-out:hover > .post-description { 
+  opacity: 0;
+  transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-webkit-transition: opacity 0.3s linear;
 }
 
 .bold-pink{

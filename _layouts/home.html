@@ -7,7 +7,7 @@ layout: default
 <div class="posts">
   {% for post in paginator.posts %}
   <section class="post-entry">
-    <div class="post">
+    <div class="post fade-out">
       <a href="{{ post.url | relative_url }}">
         <figure class="tint">  
           <img class= "feed-img" src= "{{post.feed-img}}" alt="Image of {{post.title}}"/>
