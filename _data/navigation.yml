@@ -1,6 +1,8 @@
 - title: About
   url: /about/
 - title: Projects
-  url: /tags/#projects
+  url: /categories/projects.html
+- title: Blog
+  url: /categories/blog.html
 - title: Contact
   url: /contact/

@@ -1,6 +1,6 @@
 # Setup
 title: Sydney Micklas
-description: Frontend Developer specialized in Android
+description: Android Developer
 url: https://smicklas.github.io
 avatar: /
 paginate: 10
@@ -52,6 +52,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Songzi Vong
-  url: https://github.com/vszhub/
-  email: vszhub@gmail.com
+  name: Sydney Micklas
+  url: https://github.com/smicklas/
+  email: micklas.sydney@gmail.com

@@ -29,7 +29,9 @@ layout: default
 
   {{ content }}
 
-  {% if page.tags %}
+
+  {{page.tags}}
+  {% if page.tags.empty? == true %}
     {% include post-tags.html %}
   {% endif %}
 

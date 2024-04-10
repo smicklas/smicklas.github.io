@@ -2,10 +2,9 @@
 layout: post
 title: Calorie Tracker
 date: 2021-02-27 23:18 +0800
-tags: [projects]
-toc:  true
 feed-img: ../assets/images/calorie_cover.png
 description: Hydrid Tizen application for tracking and calculating calories
+categories: [project]
 ---
 
 At the beginning of 2021, I was looking to upgrade from my old Fitbit Charge 2. One of the candidates was the Samsung Active Watch 2 - it was beautiful, the app looked great, and overall seemed to be one of the best new fitness-focused smartwatches. When I ordered it, I noticed one of my favorite features from the Fitbit was gone - a calorie tracker! 
@@ -22,10 +21,10 @@ First I started off with the easy part - designs! I created a couple different v
 - Detailed/swiped view of calories burned by activity 
 
 <div class="siema">
-    <img src="../../../../assets/images/calorie_1.png" alt="AuroraCast screenshot"/>
-    <img src="../../../../assets/images/calorie_2.png" alt="AuroraCast screenshot"/>
-    <img src="../../../../assets/images/calorie_3.png" alt="AuroraCast screenshot"/>
-    <img src="../../../../assets/images/calorie_4.png" alt="AuroraCast screenshot"/>
+    <img src="/assets/images/calorie_1.png" alt="Calorie widget screenshot"/>
+    <img src="/assets/images/calorie_2.png" alt="Calorie widget screenshot"/>
+    <img src="/assets/images/calorie_3.png" alt="Calorie widget screenshot"/>
+    <img src="/assets/images/calorie_4.png" alt="Calorie widget screenshot"/>
 </div>
 <div class="gallery-button-container center">
     <button class="prev center gallery-button"><i class="fas fa-backward" aria-hidden="true"></i></button>
