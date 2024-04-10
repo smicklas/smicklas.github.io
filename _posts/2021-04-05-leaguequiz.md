@@ -9,7 +9,7 @@ categories: [project]
 
 This project is a quiz game to test user's knowledge of League of Legends abilities developed with React. 
 
-The champion abillity, image, name, key binding, and description from this site content: <a href="https://www.mobafire.com/league-of-legends/abilities">https://www.mobafire.com/league-of-legends/abilities</a> and then displaying it in plain text. 
+The champion ability, image, name, key binding, and description from this site content: <a href="https://www.mobafire.com/league-of-legends/abilities">https://www.mobafire.com/league-of-legends/abilities</a>. The data would get parsed with regexes to extract the needed parameters. 
 
 This project, like many, started with some mockups - screenshots below were created in Figma. 
 
@@ -25,6 +25,21 @@ This project, like many, started with some mockups - screenshots below were crea
 
 My goal was to closely mimic the style of the style used in the <a href="https://www.chiboost.net/upload/2019/03/IMAGE-FOR-LOL-CLIENT-SPEC-MODE-1024x576.jpg">League of Legends launcher</a>, <a href="https://images2.minutemediacdn.com/image/upload/c_fill,w_912,h_516,f_auto,q_auto,g_auto/shape/cover/sport/5afde7387134f68573000003.png">champ select</a>, and <a href="https://na.leagueoflegends.com/en-us/">website</a>. 
 
-It was briefly hosted on Heroku for other League of Legends players to play test. 
+It was briefly hosted on Heroku for other League of Legends players to play test. I wanted to reduce the client-side load, so I upgraded to use some backend services. When a user started up their game, the app would hit an AWS lambda to get the game data. 
 
-The repository can be found <a href="https://github.com/smicklas/LeagueAbilityQuiz"> here.</a>
+Below are some screenshots of the final implementation. I added some loading, a game landing screen and a final ranking. 
+
+<div class="siema">
+    <img src="/assets/images/league-quiz-impl-1.png" alt="Landing screen of League of Legends Ability Quiz"/>
+    <img src="/assets/images/league-quiz-impl-2.png" alt="Loading screen of League of Legends Ability Quiz"/>
+    <img src="/assets/images/league-quiz-impl-3.png" alt="Game screen of League of Legends Ability Quiz"/>
+    <img src="/assets/images/league-quiz-impl-4.png" alt="Game screen with incorrect guess of League of Legends Ability Quiz"/>
+    <img src="/assets/images/league-quiz-impl-5.png" alt="Game screen with correct guess of League of Legends Ability Quiz"/>
+    <img src="/assets/images/league-quiz-impl-6.png" alt="Final score screen of of League of Legends Ability Quiz"/>
+</div>
+<div class="gallery-button-container center">
+    <button class="prev center gallery-button"><i class="fas fa-backward" aria-hidden="true"></i></button>
+    <button class="next center gallery-button"><i class="fas fa-forward" aria-hidden="true"></i></button>
+</div>
+
+The projects needs a little TLC  - Mobafire has since updated their HTML which means many of the regexes no longer work. If you're still interested in taking a peek, <a href="https://github.com/smicklas/LeagueAbilityQuiz">the repo is here.</a> Some time in the future I'll need to either update the regexes, or just create a DB for the entries and groom them myself. 
