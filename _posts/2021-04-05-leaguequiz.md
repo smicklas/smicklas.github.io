@@ -23,7 +23,7 @@ This project, like many, started with some mockups - screenshots below were crea
     <button class="next center gallery-button"><i class="fas fa-forward" aria-hidden="true"></i></button>
 </div>
 
-My goal was to closely mimic the style of the style used in the <a href="https://www.chiboost.net/upload/2019/03/IMAGE-FOR-LOL-CLIENT-SPEC-MODE-1024x576.jpg">League of Legends launcher</a>, <a href="https://images2.minutemediacdn.com/image/upload/c_fill,w_912,h_516,f_auto,q_auto,g_auto/shape/cover/sport/5afde7387134f68573000003.png">champ select</a>, and <a href="https://na.leagueoflegends.com/en-us/">website</a>. 
+My goal was to closely mimic the style of the style used in the <a href="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*NxkLhUAk5y5qiDRhdt89pQ.png">League of Legends launcher</a>, <a href="https://images2.minutemediacdn.com/image/upload/c_fill,w_912,h_516,f_auto,q_auto,g_auto/shape/cover/sport/5afde7387134f68573000003.png">champ select</a>, and <a href="https://na.leagueoflegends.com/en-us/">website</a>. 
 
 It was briefly hosted on Heroku for other League of Legends players to play test. I wanted to reduce the client-side load, so I upgraded to use some backend services. When a user started up their game, the app would hit an AWS lambda to get the game data. 
 
