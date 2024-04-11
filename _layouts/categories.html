@@ -16,15 +16,19 @@ layout: default
 {%- endif -%}
 {%- endfor -%}
 
+{% assign post_count = 0 %}
+
 {% comment %} Show posts by taxonomy {% endcomment %}
 {%- for i in (1..max_count) reversed -%}
 {%- for taxonomy in taxonomies -%}
 {%- assign taxonomy_name = taxonomy[0] -%}
 {%- assign slugified_taxonomy_name = taxonomy_name | slugify -%}
-{%- assign posts S= taxonomy[1] -%}
+{%- assign posts = taxonomy[1] -%}
 {%- if posts.size == i -%}
 <ul class="post-list">
   {%- for post in posts -%}
+  {%- if post.categories == page.categories -%}
+  {% assign post_count = post_count | plus:1 %}
   <section class="post-entry">
     <div class="post fade-out">
       <a href="{{ post.url | relative_url }}">
@@ -36,8 +40,13 @@ layout: default
       <h2 class="post-description">{{ post.description | strip_html }}</h2>
     </div>
   </section>
+  {%- endif -%}
   {%- endfor -%}
 </ul>
 {%- endif -%}
 {%- endfor -%}
 {%- endfor -%}
+
+{%- if post_count == 0 -%}
+  <h2> No posts found for this category. Sorry!</h2>
+{%- endif -%}
