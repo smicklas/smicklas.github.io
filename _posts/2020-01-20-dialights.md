@@ -5,6 +5,7 @@ date: 2020-01-20 23:18 +0800
 feed-img: ../assets/images/dialights_cover.png
 description: RBG lights controlled by Arduino, bluetooth, and Android application
 category: [project]
+tags: [arduino, android, design]
 ---
 <img class="pink-shadow center" src="/assets/images/dialights.png" alt="DiaLights on the wall"/>
 

@@ -5,6 +5,7 @@ date: 2019-12-3 23:18 +0800
 feed-img: ../assets/images/rideshare_cover.png
 description: Mockups for mobile hitch-hiking/ridesharing application
 categories: [project]
+tags: [design]
 ---
 
 As a design excercise, I created design boards for a ride sharing/carpooling Android app. The app is designed to help pair drivers, who input where they will be driving to and from, and riders who can request to join drivers along their route.

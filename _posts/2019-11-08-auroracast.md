@@ -5,6 +5,7 @@ date: 2019-11-8 23:18 +0800
 feed-img: ../assets/images/aurora_cover.png
 description: Simple web page for predicting Northern Lights visiblity
 categories: [project]
+tags: [frontend, design]
 ---
 
 <img class="pink-shadow center" src="/assets/images/auroracast.png"/>
@@ -27,7 +28,7 @@ The cloud animation grows in opacity with real location cloud coverage. The glow
 
 It is built with HTML, CSS, and Javascript. The repository can be found <a href="https://github.com/smicklas/AuroraReact">here</a>.
 
-As a excercise later on, I wanted to create an alternate layout for the information: 
+As a exercise later on, I wanted to create an alternate layout for the information: 
 
 <img src="/assets/images/aurorareact_1.png" alt="AuroraCast screenshot"/>
 <img src="/assets/images/aurorareact_2.png" alt="AuroraCast screenshot"/>

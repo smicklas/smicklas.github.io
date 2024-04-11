@@ -17,7 +17,7 @@ layout: default
         currentCarousel.prev()
       });
 
-      const currentCarouselNext =  jQuery(siema).next().children('.next');
+      const currentCarouselNext = jQuery(siema).next().children('.next');
       currentCarouselNext.on("click", function () {
         console.log("next")
         currentCarousel.next()
@@ -41,10 +41,8 @@ layout: default
 
   {{ content }}
 
-
-  {{page.tags}}
-  {% if page.tags.empty? == true %}
-  {% include post-tags.html %}
+  {% if page.tags != nil %}
+    {% include post-tags.html %}
   {% endif %}
 
   {% if jekyll.environment == "production" and site.disqus and page.comments != false %}

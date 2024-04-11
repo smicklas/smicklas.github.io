@@ -5,6 +5,7 @@ date: 2021-04-05 23:18 +0800
 feed-img: ../assets/images/abilityquiz_cover.png
 description: Quiz to test League of Legends champion abilities 
 categories: [project]
+tags: [frontend, react, design]
 ---
 
 This project is a quiz game to test user's knowledge of League of Legends abilities developed with React. 
