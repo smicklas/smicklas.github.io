@@ -6,44 +6,38 @@ layout: default
 
 {%- assign taxonomies = site.categories -%}
 
-
-{{ posts }}
-
 {% comment %} Calculate the max count of taxonomies {% endcomment %}
 {%- assign max_count = 0 -%}
 
 {%- for taxonomy in taxonomies -%}
-  {%- assign posts = taxonomy[1] -%}
-    {%- if posts.size > max_count -%}
-      {%- assign max_count = posts.size -%}
-  {%- endif -%}
+{%- assign posts = taxonomy[1] -%}
+{%- if posts.size > max_count -%}
+{%- assign max_count = posts.size -%}
+{%- endif -%}
 {%- endfor -%}
 
 {% comment %} Show posts by taxonomy {% endcomment %}
 {%- for i in (1..max_count) reversed -%}
-  {%- for taxonomy in taxonomies -%}
-    {%- assign taxonomy_name = taxonomy[0] -%}
-    {%- assign slugified_taxonomy_name = taxonomy_name | slugify -%}
-    {%- assign posts = taxonomy[1] -%}
-    {%- if posts.size == i -%}
-      <ul class="post-list">
-        {%- for post in posts -%}
-      
-          {%- if post.categories == page.categories -%}
-            <section class="post-entry">
-              <div class="post fade-out">
-                <a href="{{ post.url | relative_url }}">
-                  <figure class="tint">
-                    <img class="feed-img" src="{{post.feed-img}}" alt="Image of {{post.title}}" />
-                  </figure>
-                </a>
-                <h2 class="card-title">{{ post.title }}</h2>
-                <h2 class="post-description">{{ post.description | strip_html }}</h2>
-              </div>
-            </section>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
+{%- for taxonomy in taxonomies -%}
+{%- assign taxonomy_name = taxonomy[0] -%}
+{%- assign slugified_taxonomy_name = taxonomy_name | slugify -%}
+{%- assign posts S= taxonomy[1] -%}
+{%- if posts.size == i -%}
+<ul class="post-list">
+  {%- for post in posts -%}
+  <section class="post-entry">
+    <div class="post fade-out">
+      <a href="{{ post.url | relative_url }}">
+        <figure class="tint">
+          <img class="feed-img" src="{{post.feed-img}}" alt="Image of {{post.title}}" />
+        </figure>
+      </a>
+      <h2 class="card-title">{{ post.title }}</h2>
+      <h2 class="post-description">{{ post.description | strip_html }}</h2>
+    </div>
+  </section>
   {%- endfor -%}
+</ul>
+{%- endif -%}
+{%- endfor -%}
 {%- endfor -%}
