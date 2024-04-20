@@ -5,6 +5,7 @@ date: 2021-02-27 23:18 +0800
 feed-img: ../assets/images/calorie_cover.png
 description: Hydrid Tizen application for tracking and calculating calories
 categories: [project]
+tags: [wearables, frontend, design]
 ---
 
 At the beginning of 2021, I was looking to upgrade from my old Fitbit Charge 2. One of the candidates was the Samsung Active Watch 2 - it was beautiful, the app looked great, and overall seemed to be one of the best new fitness-focused smartwatches. When I ordered it, I noticed one of my favorite features from the Fitbit was gone - a calorie tracker! 

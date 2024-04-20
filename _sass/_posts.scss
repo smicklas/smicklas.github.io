@@ -132,6 +132,11 @@
   border-radius: .5em;
 }
 
+.tag-title { 
+  color: var(--secondary-color);
+  text-align: start;
+}
+
 //img formatting 
 .pink-shadow{
   box-shadow: 15px 15px 0px var(--main-color);
