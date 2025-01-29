@@ -7,7 +7,7 @@ title: About
 
 Hi, I'm Sydney! 💕
 
-I'm a software engineer in Indiana. I'm a Midwest enthusiast who was born and raised in the mitten of Michigan.
+I'm a software engineer in the Grand Rapids area of Michigan. I'm a Midwest enthusiast who was born and raised in the mitten.
 
 I currently make cool Android applications. Frontend development and web design have a soft spot in my heart. 
 
@@ -19,4 +19,4 @@ I graduated Michigan Technological University in 2019 with a Bachelor's Degree i
 
 Some of my projects include Compose apps, React experiments, wearables, and other mobile-based experiences. 
 
-In my off time I enjoy video games, weight lifting, roller skating, crafts, and walking my pup. 
+In my off time I enjoy video games, weight lifting, roller skating, crafts, crocheting and walking my pup. 
