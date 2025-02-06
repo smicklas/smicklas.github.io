@@ -1,5 +1,5 @@
 # Setup
-title: Sydney Micklas
+title: Sydney Portuesi
 description: Android Developer
 url: https://smicklas.github.io
 avatar: /
@@ -52,6 +52,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Sydney Micklas
+  name: Sydney Portuesi
   url: https://github.com/smicklas/
-  email: micklas.sydney@gmail.com
+  email: sydney.portuesi@gmail.com

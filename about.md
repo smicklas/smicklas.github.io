@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-<img class="pink-shadow center" src="../assets/images/sydney-micklas.jpeg" alt="Sydney Micklas"/>
+<img class="pink-shadow center" src="../assets/images/sydney-micklas.jpeg" alt="Sydney Portuesi"/>
 
 Hi, I'm Sydney! 💕
 
