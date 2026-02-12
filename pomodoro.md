@@ -3,7 +3,7 @@ layout: null
 permalink: /pomodoro/
 title: pomodoro
 ---
-<!DOCTYPE html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -465,4 +465,4 @@ title: pomodoro
     document.getElementById('titleToggle').addEventListener('change', updateDisplay);
 </script>
 </body>
-</html>
+
