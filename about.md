@@ -7,7 +7,7 @@ title: About
 
 Hi, I'm Sydney! 💕
 
-I'm a software engineer in the Grand Rapids area of Michigan. I'm a Midwest enthusiast who was born and raised in the mitten.
+I'm a software engineer. I'm a Midwest enthusiast who was born and raised in the mitten.
 
 I currently make cool Android applications. Frontend development and web design have a soft spot in my heart. 
 
