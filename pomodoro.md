@@ -3,8 +3,7 @@ layout: null
 permalink: /pomodoro/
 title: pomodoro
 ---
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,7 +191,7 @@ title: pomodoro
     <div class="settings-grid">
         <div>
             <h3 style="color: var(--work-accent); margin-top: 0;">🌸 Work</h3>
-            <label>YouTube URL (Update triggers preview)</label>
+            <label>YouTube URL</label>
             <input type="text" id="workUrl" value="https://www.youtube.com/watch?v=jfKfPfyJRdk">
             <label>Minutes</label>
             <input type="number" id="workMins" value="25">
