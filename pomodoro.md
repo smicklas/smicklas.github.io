@@ -3,10 +3,11 @@ layout: null
 permalink: /pomodoro/
 title: pomodoro
 ---
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focus Flow v2.1</title>
+    <title>pomodoro</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,14 +19,15 @@ title: pomodoro
             --accent-break-pastel: #66a6ff;
             --font-main: 'Quicksand', sans-serif;
 
-            /* --- Theme 2: Hacker Pink Terminal (UPDATED) --- */
+            /* --- Theme 2: Hacker Pink Terminal --- */
             --bg-hacker: #0a0a0a;
             --glass-hacker: rgba(20, 20, 20, 0.9);
-            /* UPDATED: Lighter, softer pink */
             --text-hacker: #ff80ab; 
             --accent-work-hacker: #ff80ab;
-            --accent-break-hacker: #00f2ff; /* Cyan Break */
+            --accent-break-hacker: #00f2ff;
             --font-hacker: 'Fira Code', monospace;
+            
+            --section-gap: 25px; /* Consistent spacing variable */
         }
 
         body {
@@ -38,7 +40,6 @@ title: pomodoro
             padding: 20px;
         }
 
-        /* Base Styles for Themes */
         body.theme-pastel { background: var(--bg-pastel); color: var(--text-pastel); font-family: var(--font-main); }
         body.theme-hacker { background: var(--bg-hacker); color: var(--text-hacker); font-family: var(--font-hacker); }
 
@@ -46,10 +47,14 @@ title: pomodoro
             max-width: 850px;
             width: 100%;
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 35px;
-            padding: 30px;
+            padding: 40px; /* Increased for breathing room */
             text-align: center;
             transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            gap: var(--section-gap);
         }
 
         body.theme-pastel .glass-container { 
@@ -60,10 +65,15 @@ title: pomodoro
         
         body.theme-hacker .glass-container { 
             background: var(--glass-hacker); 
-            border: 1px solid rgba(255, 128, 171, 0.3); /* Lighter pink border */
+            border: 1px solid rgba(255, 128, 171, 0.2);
             border-radius: 12px;
-            /* UPDATED: Reduced container glow */
-            box-shadow: 0 0 15px rgba(255, 128, 171, 0.1);
+            box-shadow: 0 0 15px rgba(255, 128, 171, 0.05);
+        }
+
+        #header-area, #settings-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .video-wrapper {
@@ -73,109 +83,85 @@ title: pomodoro
             padding-bottom: 56.25%;
             height: 0;
             background: #000;
-            margin-bottom: 20px;
-            transition: border-radius 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        body.theme-hacker .video-wrapper { border-radius: 8px; }
-
+        body.theme-hacker .video-wrapper { border-radius: 8px; box-shadow: none; border: 1px solid #333; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        .timer-display { font-size: 5.5rem; font-weight: 700; margin: 10px 0; transition: all 0.5s; }
+        .timer-display { font-size: 5.5rem; font-weight: 700; line-height: 1; transition: all 0.5s; }
         
-        /* Dynamic Colors & Glows for Timer */
         body.theme-pastel.work-mode .timer-display { color: var(--accent-work-pastel); }
         body.theme-pastel.break-mode .timer-display { color: var(--accent-break-pastel); }
-        
-        /* UPDATED: Reduced glow (text-shadow) for Hacker mode */
-        body.theme-hacker.work-mode .timer-display { 
-            color: var(--accent-work-hacker); 
-            text-shadow: 0 0 5px rgba(255, 128, 171, 0.6);
-        }
-        body.theme-hacker.break-mode .timer-display { 
-            color: var(--accent-break-hacker); 
-            text-shadow: 0 0 5px rgba(0, 242, 255, 0.6);
-        }
+        body.theme-hacker.work-mode .timer-display { color: var(--accent-work-hacker); text-shadow: 0 0 5px rgba(255, 128, 171, 0.4); }
+        body.theme-hacker.break-mode .timer-display { color: var(--accent-break-hacker); text-shadow: 0 0 5px rgba(0, 242, 255, 0.4); }
+
+        #status { font-weight: bold; letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; }
 
         button {
-            padding: 10px 24px;
+            padding: 12px 24px;
             border-radius: 50px;
             border: none;
             cursor: pointer;
-            margin: 5px;
             font-weight: 700;
             font-family: inherit;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
         }
 
-        /* Patel Buttons */
-        body.theme-pastel button { background: rgba(255,255,255,0.5); color: var(--text-pastel); }
-        body.theme-pastel button:hover { background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        body.theme-pastel button { background: rgba(255,255,255,0.6); color: var(--text-pastel); }
+        body.theme-pastel button:hover { background: #fff; transform: translateY(-2px); }
 
-        /* Hacker Buttons */
         body.theme-hacker button { 
             background: transparent; 
             border: 1px solid var(--text-hacker); 
             color: var(--text-hacker); 
             border-radius: 4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        body.theme-hacker button:hover { 
-            background: var(--text-hacker); 
-            color: var(--bg-hacker); /* Dark text on pink background */
-            box-shadow: 0 0 10px rgba(255, 128, 171, 0.4);
-        }
+        body.theme-hacker button:hover { background: var(--text-hacker); color: var(--bg-hacker); }
 
         .settings-grid, .theme-switcher {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 20px;
+            padding: 20px;
+            border-radius: 20px;
             text-align: left;
-            padding: 25px;
-            border-radius: 25px;
-            transition: all 0.5s ease;
         }
 
         body.theme-pastel .settings-grid, body.theme-pastel .theme-switcher { background: rgba(255,255,255,0.2); }
-        body.theme-hacker .settings-grid, body.theme-hacker .theme-switcher { background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid rgba(255, 128, 171, 0.1);}
+        body.theme-hacker .settings-grid, body.theme-hacker .theme-switcher { background: rgba(0,0,0,0.4); border: 1px solid rgba(255, 128, 171, 0.1); border-radius: 8px; }
 
         .hidden { display: none !important; }
 
         input {
-            width: 100%; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.2); color: inherit; margin-top: 8px; font-family: inherit; box-sizing: border-box;
-            transition: all 0.3s ease;
+            width: 100%; padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1); color: inherit; margin-top: 8px; font-family: inherit; box-sizing: border-box;
         }
         
-        body.theme-hacker input {
-            border-radius: 4px;
-            border: 1px solid rgba(255, 128, 171, 0.3);
-            background: rgba(0,0,0,0.5);
-        }
-        body.theme-hacker input:focus { outline: none; border-color: var(--text-hacker); }
+        body.theme-hacker input { border-radius: 4px; border-color: rgba(255, 128, 171, 0.2); }
 
-        .focus-btn { position: fixed; top: 20px; right: 20px; z-index: 100; opacity: 0.6; }
-        .focus-btn:hover { opacity: 1; }
-        
-        #status { font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block;}
+        .focus-toggle { position: fixed; top: 20px; right: 20px; z-index: 100; opacity: 0.4; font-size: 0.8rem; }
+        .focus-toggle:hover { opacity: 1; }
+
+        .controls { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
     </style>
 </head>
 <body class="theme-pastel work-mode">
 
-<button class="focus-btn" onclick="toggleFocus()">👁️ Focus Mode</button>
+<button class="focus-toggle" onclick="toggleFocus()">Focus Mode</button>
 
 <div class="glass-container" id="mainContainer">
     <div id="header-area">
         <div class="theme-switcher">
-            <button onclick="setTheme('pastel')">🌸 Pastel Flow</button>
-            <button onclick="setTheme('hacker')">⌨️ Hacker Pink</button>
+            <button onclick="setTheme('pastel')">Pastel Flow</button>
+            <button onclick="setTheme('hacker')">Hacker Pink</button>
         </div>
     </div>
 
-    <span id="status">Ready?</span>
-    <div class="timer-display" id="timer">25:00</div>
+    <div id="timer-box">
+        <div id="status">Ready?</div>
+        <div class="timer-display" id="timer">25:00</div>
+    </div>
 
     <div class="video-wrapper">
         <div id="player"></div>
@@ -196,8 +182,8 @@ title: pomodoro
         <div>
             <strong>BREAK CONFIG</strong>
             <input type="text" id="breakUrl" value="https://www.youtube.com/watch?v=5qap5aO4i9A" onchange="saveSettings()">
-            <div style="margin-top: 10px;">
-                 <input type="checkbox" id="syncBreak" onchange="saveSettings()" style="width: auto; margin-right: 10px;"> Sync Length
+            <div style="margin-top: 10px; font-size: 0.8rem;">
+                 <input type="checkbox" id="syncBreak" onchange="saveSettings()" style="width: auto; margin-right: 5px;"> Sync Length
             </div>
             <input type="number" id="breakMins" value="5" onchange="saveSettings()">
         </div>
@@ -297,7 +283,7 @@ title: pomodoro
             b.classList.add('break-mode'); 
             status.innerText = "/// BREAK TIME ///";
             player.loadVideoById(extractId(document.getElementById('breakUrl').value)); 
-            if (document.getElementById('syncBreak').checked) setTimeout(() => { timeLeft = Math.floor(player.getDuration()); updateDisplay(); }, 1000);
+            if (document.getElementById('syncBreak').checked) setTimeout(() => { timeLeft = Math.floor(player.getDuration()) || (document.getElementById('breakMins').value * 60); updateDisplay(); }, 1000);
             else timeLeft = document.getElementById('breakMins').value * 60;
         }
     }
