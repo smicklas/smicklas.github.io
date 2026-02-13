@@ -146,7 +146,7 @@ title: pomodoro
         .controls { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
     </style>
 </head>
-<body class="theme-pastel work-mode">
+<body class="theme-hacker work-mode">
 
 <button class="focus-toggle" onclick="toggleFocus()">Focus Mode</button>
 
