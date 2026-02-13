@@ -3,48 +3,67 @@ layout: null
 permalink: /pomodoro/
 title: pomodoro
 ---
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pomodoro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <title>Focus Flow v2.1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            --work-accent: #ff9a9e;     
-            --break-accent: #66a6ff;    
-            --warmup-accent: #ffcc33;   
-            --text-dark: #4a4a4a;
-            --glass-bg: rgba(255, 255, 255, 0.3);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+            /* --- Theme 1: Pastel Flow --- */
+            --bg-pastel: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --glass-pastel: rgba(255, 255, 255, 0.3);
+            --text-pastel: #4a4a4a;
+            --accent-work-pastel: #ff9a9e;
+            --accent-break-pastel: #66a6ff;
+            --font-main: 'Quicksand', sans-serif;
+
+            /* --- Theme 2: Hacker Pink Terminal (UPDATED) --- */
+            --bg-hacker: #0a0a0a;
+            --glass-hacker: rgba(20, 20, 20, 0.9);
+            /* UPDATED: Lighter, softer pink */
+            --text-hacker: #ff80ab; 
+            --accent-work-hacker: #ff80ab;
+            --accent-break-hacker: #00f2ff; /* Cyan Break */
+            --font-hacker: 'Fira Code', monospace;
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-dark);
+            transition: background 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             margin: 0;
             padding: 20px;
         }
 
+        /* Base Styles for Themes */
+        body.theme-pastel { background: var(--bg-pastel); color: var(--text-pastel); font-family: var(--font-main); }
+        body.theme-hacker { background: var(--bg-hacker); color: var(--text-hacker); font-family: var(--font-hacker); }
+
         .glass-container {
             max-width: 850px;
             width: 100%;
-            background: var(--glass-bg);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             border-radius: 35px;
-            border: var(--glass-border);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             padding: 30px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
+        }
+
+        body.theme-pastel .glass-container { 
+            background: var(--glass-pastel); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        body.theme-hacker .glass-container { 
+            background: var(--glass-hacker); 
+            border: 1px solid rgba(255, 128, 171, 0.3); /* Lighter pink border */
+            border-radius: 12px;
+            /* UPDATED: Reduced container glow */
+            box-shadow: 0 0 15px rgba(255, 128, 171, 0.1);
         }
 
         .video-wrapper {
@@ -55,414 +74,252 @@ title: pomodoro
             height: 0;
             background: #000;
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: border-radius 0.5s ease;
         }
+        body.theme-hacker .video-wrapper { border-radius: 8px; }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .timer-display { font-size: 5.5rem; font-weight: 700; margin: 10px 0; transition: all 0.5s; }
+        
+        /* Dynamic Colors & Glows for Timer */
+        body.theme-pastel.work-mode .timer-display { color: var(--accent-work-pastel); }
+        body.theme-pastel.break-mode .timer-display { color: var(--accent-break-pastel); }
+        
+        /* UPDATED: Reduced glow (text-shadow) for Hacker mode */
+        body.theme-hacker.work-mode .timer-display { 
+            color: var(--accent-work-hacker); 
+            text-shadow: 0 0 5px rgba(255, 128, 171, 0.6);
         }
-
-        .video-loader {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+        body.theme-hacker.break-mode .timer-display { 
+            color: var(--accent-break-hacker); 
+            text-shadow: 0 0 5px rgba(0, 242, 255, 0.6);
         }
-
-        .video-loader.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .timer-display {
-            font-size: 5.5rem;
-            font-weight: 700;
-            margin: 10px 0;
-            transition: color 0.5s ease;
-        }
-
-        .status-pill {
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            background: rgba(255,255,255,0.4);
-        }
-
-        .glass-container.work-mode .timer-display { color: var(--work-accent); }
-        .glass-container.break-mode .timer-display { color: var(--break-accent); }
-        .glass-container.warmup-mode .timer-display { color: var(--warmup-accent); }
 
         button {
-            padding: 12px 30px;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
+            padding: 10px 24px;
             border-radius: 50px;
             border: none;
             cursor: pointer;
             margin: 5px;
-            transition: all 0.2s;
-            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
-        #mainBtn { background: #fff; color: var(--text-dark); box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 200px;}
-        #mainBtn:hover { transform: scale(1.05); }
-        
-        #mainBtn.paused-state {
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text-dark);
+        /* Patel Buttons */
+        body.theme-pastel button { background: rgba(255,255,255,0.5); color: var(--text-pastel); }
+        body.theme-pastel button:hover { background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* Hacker Buttons */
+        body.theme-hacker button { 
+            background: transparent; 
+            border: 1px solid var(--text-hacker); 
+            color: var(--text-hacker); 
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        body.theme-hacker button:hover { 
+            background: var(--text-hacker); 
+            color: var(--bg-hacker); /* Dark text on pink background */
+            box-shadow: 0 0 10px rgba(255, 128, 171, 0.4);
         }
 
-        .settings-grid {
+        .settings-grid, .theme-switcher {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: left;
-            background: rgba(255,255,255,0.2);
-            padding: 20px;
-            border-radius: 20px;
+            padding: 25px;
+            border-radius: 25px;
+            transition: all 0.5s ease;
         }
 
-        label { font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 5px; }
-        input[type="text"], input[type="number"] {
-            width: 100%; padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.5);
-            background: rgba(255,255,255,0.5); margin-bottom: 10px; box-sizing: border-box;
-        }
+        body.theme-pastel .settings-grid, body.theme-pastel .theme-switcher { background: rgba(255,255,255,0.2); }
+        body.theme-hacker .settings-grid, body.theme-hacker .theme-switcher { background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid rgba(255, 128, 171, 0.1);}
 
-        .sync-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-        .sync-row input { width: auto; margin-bottom: 0; }
+        .hidden { display: none !important; }
+
+        input {
+            width: 100%; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.2); color: inherit; margin-top: 8px; font-family: inherit; box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
         
-        #error-banner {
-            background: #ff6b6b;
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            display: none;
-            font-size: 0.9rem;
+        body.theme-hacker input {
+            border-radius: 4px;
+            border: 1px solid rgba(255, 128, 171, 0.3);
+            background: rgba(0,0,0,0.5);
         }
+        body.theme-hacker input:focus { outline: none; border-color: var(--text-hacker); }
+
+        .focus-btn { position: fixed; top: 20px; right: 20px; z-index: 100; opacity: 0.6; }
+        .focus-btn:hover { opacity: 1; }
+        
+        #status { font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block;}
     </style>
 </head>
-<body class="work-mode">
+<body class="theme-pastel work-mode">
 
-<div class="glass-container work-mode" id="mainContainer">
-    <div id="error-banner">⚠️ <strong>Video Error:</strong> This video cannot be played here.</div>
-    
-    <div class="status-pill" id="status">Ready?</div>
+<button class="focus-btn" onclick="toggleFocus()">👁️ Focus Mode</button>
+
+<div class="glass-container" id="mainContainer">
+    <div id="header-area">
+        <div class="theme-switcher">
+            <button onclick="setTheme('pastel')">🌸 Pastel Flow</button>
+            <button onclick="setTheme('hacker')">⌨️ Hacker Pink</button>
+        </div>
+    </div>
+
+    <span id="status">Ready?</span>
     <div class="timer-display" id="timer">25:00</div>
 
     <div class="video-wrapper">
-        <div class="video-loader" id="videoLoader">
-            <div class="spinner"></div>
-        </div>
         <div id="player"></div>
     </div>
 
     <div class="controls">
-        <button id="mainBtn">Start Session ✨</button>
-        <button id="resetBtn" style="background: rgba(255,255,255,0.3)">Reset</button>
+        <button id="startBtn">START SESSION</button>
+        <button id="pauseBtn">PAUSE</button>
+        <button id="resetBtn">RESET</button>
     </div>
 
-    <div class="settings-grid">
+    <div class="settings-grid" id="settings-area">
         <div>
-            <h3 style="color: var(--work-accent); margin-top: 0;">🌸 Work</h3>
-            <label>YouTube URL</label>
-            <input type="text" id="workUrl" value="https://www.youtube.com/watch?v=jfKfPfyJRdk">
-            <label>Minutes</label>
-            <input type="number" id="workMins" value="25">
-            
-            <div class="sync-row">
-                <input type="checkbox" id="titleToggle">
-                <label for="titleToggle" style="margin-bottom:0">Show timer in Tab</label>
-            </div>
+            <strong>WORK CONFIG</strong>
+            <input type="text" id="workUrl" value="https://www.youtube.com/watch?v=jfKfPfyJRdk" onchange="saveSettings()">
+            <input type="number" id="workMins" value="25" onchange="saveSettings()">
         </div>
         <div>
-            <h3 style="color: var(--break-accent); margin-top: 0;">🐬 Break</h3>
-            <label>YouTube URL</label>
-            <input type="text" id="breakUrl" value="https://www.youtube.com/watch?v=5qap5aO4i9A">
-            
-            <div id="breakTimeInput">
-                <label>Minutes</label>
-                <input type="number" id="breakMins" value="5">
+            <strong>BREAK CONFIG</strong>
+            <input type="text" id="breakUrl" value="https://www.youtube.com/watch?v=5qap5aO4i9A" onchange="saveSettings()">
+            <div style="margin-top: 10px;">
+                 <input type="checkbox" id="syncBreak" onchange="saveSettings()" style="width: auto; margin-right: 10px;"> Sync Length
             </div>
-
-            <div class="sync-row">
-                <input type="checkbox" id="syncBreak">
-                <label for="syncBreak" style="margin-bottom:0">Match video length</label>
-            </div>
+            <input type="number" id="breakMins" value="5" onchange="saveSettings()">
         </div>
     </div>
 </div>
 
 <script>
-    // --- 1. LOCAL STORAGE LOGIC (LOAD FIRST) ---
-    function loadPreferences() {
-        if(localStorage.getItem('pastel_workUrl')) document.getElementById('workUrl').value = localStorage.getItem('pastel_workUrl');
-        if(localStorage.getItem('pastel_workMins')) document.getElementById('workMins').value = localStorage.getItem('pastel_workMins');
-        if(localStorage.getItem('pastel_breakUrl')) document.getElementById('breakUrl').value = localStorage.getItem('pastel_breakUrl');
-        if(localStorage.getItem('pastel_breakMins')) document.getElementById('breakMins').value = localStorage.getItem('pastel_breakMins');
-        
-        if(localStorage.getItem('pastel_syncBreak') !== null) {
-            const isChecked = localStorage.getItem('pastel_syncBreak') === 'true';
-            document.getElementById('syncBreak').checked = isChecked;
-            document.getElementById('breakTimeInput').style.opacity = isChecked ? "0.3" : "1";
-        }
-        if(localStorage.getItem('pastel_titleToggle') !== null) {
-             document.getElementById('titleToggle').checked = localStorage.getItem('pastel_titleToggle') === 'true';
-        }
-    }
-
-    function savePreferences() {
-        localStorage.setItem('pastel_workUrl', document.getElementById('workUrl').value);
-        localStorage.setItem('pastel_workMins', document.getElementById('workMins').value);
-        localStorage.setItem('pastel_breakUrl', document.getElementById('breakUrl').value);
-        localStorage.setItem('pastel_breakMins', document.getElementById('breakMins').value);
-        localStorage.setItem('pastel_syncBreak', document.getElementById('syncBreak').checked);
-        localStorage.setItem('pastel_titleToggle', document.getElementById('titleToggle').checked);
-    }
-
-    // Load saved settings immediately before Player loads
-    loadPreferences();
-    
-    // Attach save listeners to all inputs
-    ['workUrl', 'workMins', 'breakUrl', 'breakMins', 'syncBreak', 'titleToggle'].forEach(id => {
-        document.getElementById(id).addEventListener('change', savePreferences);
-    });
-
-    // --- 2. MAIN APP VARIABLES ---
-    let player;
-    let timerInterval;
-    let timeLeft;
-    let currentState = 'IDLE'; 
-    let nextState = 'WORKING'; 
-    let isPaused = true; 
-    const defaultTitle = document.title;
-
-    // --- 3. AUDIO SYSTEM ---
+    let player, timerInterval, timeLeft, isPaused = true;
+    let currentState = 'IDLE', nextState = 'WORKING';
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    
-    function playChime(freq = 440, type = 'sine') {
-        if(audioCtx.state === 'suspended') audioCtx.resume();
+
+    function setTheme(theme) {
+        document.body.classList.remove('theme-pastel', 'theme-hacker');
+        document.body.classList.add('theme-' + theme);
+        saveSettings();
+    }
+
+    function toggleFocus() {
+        document.getElementById('header-area').classList.toggle('hidden');
+        document.getElementById('settings-area').classList.toggle('hidden');
+    }
+
+    function saveSettings() {
+        const settings = {
+            workUrl: document.getElementById('workUrl').value,
+            workMins: document.getElementById('workMins').value,
+            breakUrl: document.getElementById('breakUrl').value,
+            breakMins: document.getElementById('breakMins').value,
+            syncBreak: document.getElementById('syncBreak').checked,
+            theme: document.body.classList.contains('theme-hacker') ? 'hacker' : 'pastel'
+        };
+        localStorage.setItem('pomodoroSettingsV2', JSON.stringify(settings));
+    }
+
+    function loadSettings() {
+        const s = JSON.parse(localStorage.getItem('pomodoroSettingsV2'));
+        if (s) {
+            document.getElementById('workUrl').value = s.workUrl;
+            document.getElementById('workMins').value = s.workMins;
+            document.getElementById('breakUrl').value = s.breakUrl;
+            document.getElementById('breakMins').value = s.breakMins;
+            document.getElementById('syncBreak').checked = s.syncBreak;
+            setTheme(s.theme || 'pastel');
+        }
+    }
+
+    function playChime(freq, type = 'sine') {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = type;
         osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + 0.01);
         gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 1);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + 1);
     }
 
-    // --- 4. YOUTUBE API ---
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    document.head.appendChild(tag);
 
     function onYouTubeIframeAPIReady() {
+        loadSettings();
         player = new YT.Player('player', {
-            height: '100%', width: '100%',
             videoId: extractId(document.getElementById('workUrl').value),
-            playerVars: { 
-                'rel': 0 // removed 'origin' to help with local file playback
-            },
-            events: { 
-                'onReady': () => { 
-                    timeLeft = document.getElementById('workMins').value * 60; 
-                    updateDisplay(); 
-                },
-                'onError': onPlayerError,
-                'onStateChange': onPlayerStateChange
-            }
+            playerVars: { 'origin': window.location.origin, 'rel': 0 },
+            events: { 'onReady': () => { timeLeft = document.getElementById('workMins').value * 60; updateDisplay(); } }
         });
     }
 
-    function onPlayerStateChange(event) {
-        const loader = document.getElementById('videoLoader');
-        if (event.data === YT.PlayerState.BUFFERING || event.data === -1) {
-            loader.classList.add('active');
-        } else if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.CUED) {
-            loader.classList.remove('active');
-        }
-    }
-
-    function onPlayerError(e) {
-        if([101, 150, 153].includes(e.data)){
-            document.getElementById('error-banner').style.display = 'block';
-            document.getElementById('videoLoader').classList.remove('active');
-        }
-    }
-
     function extractId(url) {
-        if (!url) return null;
-        const match = url.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/);
-        return (match && match[7].length == 11) ? match[7] : null;
+        const m = url.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/);
+        return (m && m[7].length == 11) ? m[7] : "jfKfPfyJRdk";
     }
-
-    // --- 5. LOGIC & EVENTS ---
-
-    // Immediate URL Updates
-    document.getElementById('workUrl').addEventListener('change', (e) => {
-        const newId = extractId(e.target.value);
-        if (newId && player && typeof player.cueVideoById === 'function') {
-            player.cueVideoById(newId); 
-            document.getElementById('videoLoader').classList.add('active'); 
-        }
-    });
-
-    document.getElementById('breakUrl').addEventListener('change', (e) => {
-        if (currentState === 'BREAK') {
-            const newId = extractId(e.target.value);
-            if (newId && player) player.cueVideoById(newId);
-        }
-    });
 
     function updateDisplay() {
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
-        const formattedTime = `${mins}:${secs.toString().padStart(2, '0')}`;
-        document.getElementById('timer').innerText = formattedTime;
-
-        if(document.getElementById('titleToggle').checked && currentState !== 'IDLE') {
-            let emoji = currentState === 'WORKING' ? "🌸" : (currentState === 'BREAK' ? "🐬" : "✨");
-            document.title = `(${formattedTime}) ${emoji} ${currentState}`;
-        } else {
-            document.title = defaultTitle;
-        }
+        const m = Math.floor(timeLeft / 60);
+        const s = timeLeft % 60;
+        document.getElementById('timer').innerText = `${m}:${s.toString().padStart(2, '0')}`;
     }
 
     function setMode(mode) {
         currentState = mode;
-        const container = document.getElementById('mainContainer');
+        const b = document.body;
         const status = document.getElementById('status');
-        
-        container.classList.remove('work-mode', 'break-mode', 'warmup-mode');
+        b.classList.remove('work-mode', 'break-mode', 'warmup-mode');
+        if (mode === 'WARMUP') { 
+            b.classList.add('warmup-mode'); 
+            status.innerText = "GET READY...";
+            timeLeft = 10; player.pauseVideo(); 
+        }
+        else if (mode === 'WORKING') { 
+            b.classList.add('work-mode'); 
+            status.innerText = "/// WORK SESSION ///";
+            timeLeft = document.getElementById('workMins').value * 60; player.loadVideoById(extractId(document.getElementById('workUrl').value)); 
+        }
+        else if (mode === 'BREAK') { 
+            b.classList.add('break-mode'); 
+            status.innerText = "/// BREAK TIME ///";
+            player.loadVideoById(extractId(document.getElementById('breakUrl').value)); 
+            if (document.getElementById('syncBreak').checked) setTimeout(() => { timeLeft = Math.floor(player.getDuration()); updateDisplay(); }, 1000);
+            else timeLeft = document.getElementById('breakMins').value * 60;
+        }
+    }
 
-        if (mode === 'WARMUP') {
-            container.classList.add('warmup-mode');
-            status.innerText = "Get Ready... ✨";
-            timeLeft = 10;
-            player.pauseVideo();
-        } else if (mode === 'WORKING') {
-            container.classList.add('work-mode');
-            status.innerText = "Deep Work 🌸";
-            timeLeft = document.getElementById('workMins').value * 60;
-            
-            const vidId = extractId(document.getElementById('workUrl').value);
-            document.getElementById('videoLoader').classList.add('active');
-            player.loadVideoById(vidId);
-            
-        } else if (mode === 'BREAK') {
-            container.classList.add('break-mode');
-            status.innerText = "Rest & Recharge 🐬";
-            
-            const breakVidId = extractId(document.getElementById('breakUrl').value);
-            document.getElementById('videoLoader').classList.add('active');
-            player.loadVideoById(breakVidId);
-
-            if (document.getElementById('syncBreak').checked) {
-                setTimeout(() => {
-                    timeLeft = Math.floor(player.getDuration());
-                    updateDisplay();
-                }, 1000);
-            } else {
-                timeLeft = document.getElementById('breakMins').value * 60;
+    function startTimer() {
+        if (!isPaused) return; isPaused = false; audioCtx.resume();
+        if (currentState === 'IDLE') setMode('WARMUP');
+        timerInterval = setInterval(() => {
+            timeLeft--; updateDisplay();
+            if (timeLeft === 3) playChime(660, 'triangle');
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval); playChime(880);
+                if (currentState === 'WARMUP') setMode(nextState);
+                else if (currentState === 'WORKING') { nextState = 'BREAK'; setMode('WARMUP'); }
+                else { nextState = 'WORKING'; setMode('WARMUP'); }
+                isPaused = true; startTimer();
             }
-        }
-        updateDisplay();
+        }, 1000);
     }
 
-    function toggleTimer() {
-        const btn = document.getElementById('mainBtn');
-
-        if (isPaused) {
-            // ACTION: START
-            isPaused = false;
-            
-            if(audioCtx.state === 'suspended') audioCtx.resume();
-            playChime(1200, 'sine'); 
-            
-            btn.innerText = "Pause ⏸";
-            btn.classList.add('paused-state');
-            document.getElementById('error-banner').style.display = 'none';
-
-            if (currentState === 'IDLE') setMode('WARMUP');
-
-            updateDisplay(); 
-            
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                updateDisplay();
-
-                if (timeLeft === 3) playChime(660, 'triangle'); 
-
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    playChime(880, 'sine'); 
-                    
-                    if (currentState === 'WARMUP') {
-                        setMode(nextState);
-                        isPaused = true; toggleTimer(); 
-                    } else if (currentState === 'WORKING') {
-                        nextState = 'BREAK';
-                        setMode('WARMUP');
-                        isPaused = true; toggleTimer();
-                    } else if (currentState === 'BREAK') {
-                        nextState = 'WORKING';
-                        setMode('WARMUP');
-                        isPaused = true; toggleTimer();
-                    }
-                }
-            }, 1000);
-
-        } else {
-            // ACTION: PAUSE
-            isPaused = true;
-            clearInterval(timerInterval);
-            player.pauseVideo();
-            
-            document.getElementById('status').innerText = "Paused ⏸";
-            btn.innerText = "Resume ▶";
-            btn.classList.remove('paused-state');
-        }
-    }
-
-    document.getElementById('mainBtn').addEventListener('click', toggleTimer);
-    document.getElementById('resetBtn').addEventListener('click', () => location.reload());
-
-    document.getElementById('syncBreak').addEventListener('change', (e) => {
-        document.getElementById('breakTimeInput').style.opacity = e.target.checked ? "0.3" : "1";
-    });
-    
-    document.getElementById('titleToggle').addEventListener('change', updateDisplay);
+    document.getElementById('startBtn').addEventListener('click', startTimer);
+    document.getElementById('pauseBtn').addEventListener('click', () => { isPaused = true; clearInterval(timerInterval); player.pauseVideo(); });
+    document.getElementById('resetBtn').addEventListener('click', () => { isPaused = true; clearInterval(timerInterval); currentState = 'IDLE'; timeLeft = document.getElementById('workMins').value * 60; updateDisplay(); document.getElementById('status').innerText="READY?"; });
 </script>
 </body>
-
